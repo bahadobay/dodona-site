@@ -61,3 +61,10 @@
 }
 
 .points li { margin: 0.4rem 0; }
+
+.tagline {
+  margin: -0.25rem 0 1rem;
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  line-height: 1.15;
+}

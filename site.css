@@ -134,3 +134,9 @@
 .scale .top { outline: 1px solid var(--accent); color: var(--text); }
 
 .opts .bar { grid-column: auto; }
+
+.note-line {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}

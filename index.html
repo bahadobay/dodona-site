@@ -41,8 +41,10 @@
 
   <main class="wrap">
     <section class="hero">
-      <p class="eyebrow">The oracle that listened</p>
-      <h1>Dodona</h1>
+      <div class="title-row">
+        <h1>Dodona</h1>
+        <p class="epithet">the oracle that listened</p>
+      </div>
       <p class="tagline">Ask your audio anything.</p>
       <p class="lede">
         Dodona listens to a recording and answers your questions about it: how it was said, who
@@ -51,10 +53,43 @@
 
       <ul class="asks" aria-label="Example questions and answers">
         <li class="clip">a 10-second support call · illustrative example</li>
-        <li class="ask"><span class="ask-q">Does the caller sound angry?</span><span class="ask-p">84%</span><span class="bar"><span style="--p: 84%"></span></span></li>
-        <li class="ask"><span class="ask-q">Are they talking fast?</span><span class="ask-p">71%</span><span class="bar"><span style="--p: 71%"></span></span></li>
-        <li class="ask"><span class="ask-q">Do two people talk over each other?</span><span class="ask-p">12%</span><span class="bar"><span style="--p: 12%"></span></span></li>
-        <li class="ask"><span class="ask-q">Did they say "cancel"?</span><span class="ask-p">96%</span><span class="bar"><span style="--p: 96%"></span></span></li>
+
+        <li class="ask">
+          <span class="kind">yes / no</span>
+          <span class="ask-q">Does the caller sound angry?</span>
+          <span class="ask-p">Yes 84%</span>
+          <span class="bar"><span style="--p: 84%"></span></span>
+        </li>
+
+        <li class="ask">
+          <span class="kind">one of several</span>
+          <span class="ask-q">Which emotion comes through most?</span>
+          <span class="opts">
+            <span>angry</span><span class="bar"><span style="--p: 62%"></span></span><span>62%</span>
+            <span>neutral</span><span class="bar"><span style="--p: 21%"></span></span><span>21%</span>
+            <span>sad</span><span class="bar"><span style="--p: 9%"></span></span><span>9%</span>
+            <span>other</span><span class="bar"><span style="--p: 8%"></span></span><span>8%</span>
+          </span>
+        </li>
+
+        <li class="ask">
+          <span class="kind">scale</span>
+          <span class="ask-q">How fast are they talking?</span>
+          <span class="scale">
+            <span style="--p: 2%"><b>2%</b>very slow</span>
+            <span style="--p: 6%"><b>6%</b>slow</span>
+            <span style="--p: 21%"><b>21%</b>average</span>
+            <span class="top" style="--p: 53%"><b>53%</b>fast</span>
+            <span style="--p: 18%"><b>18%</b>very fast</span>
+          </span>
+        </li>
+
+        <li class="ask">
+          <span class="kind">yes / no</span>
+          <span class="ask-q">Did they say "cancel"?</span>
+          <span class="ask-p">Yes 96%</span>
+          <span class="bar"><span style="--p: 96%"></span></span>
+        </li>
       </ul>
     </section>
 

@@ -1,0 +1,63 @@
+/* Duy page additions on top of the main site's style.css */
+
+.asks {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 0.75rem;
+  max-width: 36rem;
+}
+
+.ask {
+  display: grid;
+  grid-template-columns: 1fr 3.5rem;
+  gap: 0.25rem 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.ask:last-child { border-bottom: 0; }
+
+.ask-q { font-size: 0.95rem; }
+
+.ask-p {
+  font: 500 0.95rem var(--mono);
+  text-align: right;
+  color: var(--accent);
+}
+
+.bar {
+  grid-column: 1 / -1;
+  height: 0.3rem;
+  border-radius: 1rem;
+  background: var(--rule);
+  overflow: hidden;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  width: var(--p);
+  background: var(--accent);
+}
+
+.clip {
+  font: 0.8rem var(--mono);
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.75rem;
+}
+
+.points {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.points li { margin: 0.4rem 0; }

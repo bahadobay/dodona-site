@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Duy — ask your audio anything</title>
-  <meta name="description" content="Duy is an open-source audio model that answers questions about a recording with honest probabilities: emotion, delivery and what was said, in one fast pass.">
+  <title>Dodona — ask your audio anything</title>
+  <meta name="description" content="Dodona is an open-source audio model that answers questions about a recording with honest probabilities: emotion, delivery and what was said, in one fast pass.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="duy.css">
+  <link rel="stylesheet" href="site.css">
   <script>
     try {
       const saved = localStorage.getItem("theme");
@@ -24,11 +24,12 @@
         <svg class="wave-mark" viewBox="0 0 28 16" aria-hidden="true">
           <path d="M1 8h3l2-5 3 10 3-12 3 14 3-10 2 6 2-3h5" />
         </svg>
-        duy
+        dodona
       </a>
       <nav class="nav">
         <a href="#how">How</a>
         <a href="#claude">Claude</a>
+        <a href="#name">Name</a>
         <a href="#status">Status</a>
         <a href="https://bahadobay.dev">bahadobay.dev</a>
         <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme">
@@ -40,10 +41,10 @@
 
   <main class="wrap">
     <section class="hero">
-      <p class="eyebrow">Duy — "hear" in Turkish</p>
+      <p class="eyebrow">Dodona — the oracle that listened</p>
       <h1>Ask your audio anything.</h1>
       <p class="lede">
-        Duy listens to a recording and answers your questions about it — how it was said, who
+        Dodona listens to a recording and answers your questions about it — how it was said, who
         was talking, what was said — each with a probability you can trust.
       </p>
 
@@ -65,11 +66,11 @@
       <div class="cards">
         <div class="card">
           <span class="card-title">One pass, no text to parse</span>
-          <span class="card-text">The usual way to question an audio language model is to let it write an answer, token by token, for each question, then parse the text. Duy reads the probability of every answer option straight from the model, for all questions at once: about 40 questions on a 10-second clip in 0.36 s on one GPU.</span>
+          <span class="card-text">The usual way to question an audio language model is to let it write an answer, token by token, for each question, then parse the text. Dodona reads the probability of every answer option straight from the model, for all questions at once: about 40 questions on a 10-second clip in 0.36 s on one GPU.</span>
         </div>
         <div class="card">
           <span class="card-title">Probabilities that mean what they say</span>
-          <span class="card-text">On the questions it was trained for, when Duy says 85% it is right about 85% of the time on held-out recordings. The model card will show the full reliability tables, not just one summary number.</span>
+          <span class="card-text">On the questions it was trained for, when Dodona says 85% it is right about 85% of the time on held-out recordings. The model card will show the full reliability tables, not just one summary number.</span>
         </div>
         <div class="card">
           <span class="card-title">Emotion, delivery and content together</span>
@@ -81,11 +82,22 @@
     <section id="claude" class="section">
       <h2>Ears for Claude</h2>
       <p class="section-intro">
-        Duy is being built with an MCP connector for Claude. Claude hands Duy a recording and its
+        Dodona is being built with an MCP connector for Claude. Claude hands Dodona a recording and its
         questions, gets calibrated answers back, and reasons over them: reviewing hundreds of
         support calls for frustration, summarising who dominated a meeting, or flagging the
-        recordings a person should listen to. Claude does the reasoning; Duy gives it ears it
+        recordings a person should listen to. Claude does the reasoning; Dodona gives it ears it
         can trust.
+      </p>
+    </section>
+
+    <section id="name" class="section">
+      <h2>Why Dodona</h2>
+      <p class="section-intro">
+        Dodona was the oldest oracle of ancient Greece. Its priests heard the answers in sound:
+        the rustling of a sacred oak, the calls of doves, the ringing of bronze cauldrons in the
+        wind. People wrote their questions on small lead tablets, most of them yes-or-no
+        ("is it better for me to…?"), and thousands survive. A written question, a recording to
+        listen to, a yes or a no: that is still the whole idea.
       </p>
     </section>
 
@@ -95,13 +107,13 @@
         <li>In development. Experiments are pre-registered and run on AWS.</li>
         <li>Built on Qwen2-Audio-7B-Instruct with a small adapter, trained on English speech: AMI meetings, CREMA-D, Common Voice.</li>
         <li>Release: open source (Apache-2.0) on Hugging Face, with a model card that states what it can and cannot answer.</li>
-        <li>Not a chat model: Duy answers questions about audio; it does not hold a conversation.</li>
+        <li>Not a chat model: Dodona answers questions about audio; it does not hold a conversation.</li>
       </ul>
     </section>
 
     <section id="contact" class="section">
       <h2>Contact</h2>
-      <p class="section-intro">Questions, ideas or a use case you would like Duy to hear: <a href="mailto:dobaybaha3@gmail.com">dobaybaha3@gmail.com</a></p>
+      <p class="section-intro">Questions, ideas or a use case you would like Dodona to hear: <a href="mailto:dobaybaha3@gmail.com">dobaybaha3@gmail.com</a></p>
     </section>
   </main>
 

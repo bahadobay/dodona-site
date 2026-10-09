@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dodona: ask your audio anything</title>
-  <meta name="description" content="Dodona is an open-source audio model that answers questions about a recording with honest probabilities: emotion, delivery and what was said, in one fast pass.">
+  <title>Dodona: a voice-native decision model</title>
+  <meta name="description" content="Dodona is a voice-native decision model. Ask your audio about what was said, how it was said, and who said it. Every answer comes with a probability you can trust.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -31,6 +31,8 @@
         <a href="#claude">Claude</a>
         <a href="#name">Name</a>
         <a href="#status">Status</a>
+        <a href="https://huggingface.co/bahadobay/dodona-audio">Model</a>
+        <a href="https://github.com/bahadobay/dodona-audio">GitHub</a>
         <a href="https://bahadobay.dev">bahadobay.dev</a>
         <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme">
           <span aria-hidden="true">◐</span>
@@ -45,40 +47,44 @@
         <h1>Dodona</h1>
         <p class="epithet">the oracle that listened</p>
       </div>
-      <p class="tagline">Ask your audio anything.</p>
+      <p class="tagline">A voice-native decision model.</p>
       <p class="lede">
-        Dodona listens to a recording and answers your questions about it: how it was said, who
-        was talking and what was said. Each answer comes with a probability you can trust.
+        Ask your audio about what was said, how it was said, and who said it. Every answer comes
+        with a probability you can trust.
+      </p>
+      <p class="lede">
+        <a href="https://huggingface.co/bahadobay/dodona-audio">Model on Hugging Face</a> &middot;
+        <a href="https://github.com/bahadobay/dodona-audio">Code on GitHub</a>
       </p>
 
       <ul class="asks" aria-label="Example questions and answers">
-        <li class="clip">a 10-second support call · illustrative example</li>
+        <li class="clip">real output · a 2.4-second clip of an actor speaking angrily (CREMA-D)</li>
         <li class="clip note-line">Each percentage is how likely that answer is, not a share of the recording.</li>
 
         <li class="ask">
           <span class="kind">yes / no</span>
-          <span class="ask-q">Did they say "cancel"?</span>
-          <span class="ask-p">Yes 96%</span>
-          <span class="bar"><span style="--p: 96%"></span></span>
+          <span class="ask-q">Does the speaker sound angry?</span>
+          <span class="ask-p">Yes 99%</span>
+          <span class="bar"><span style="--p: 99%"></span></span>
         </li>
 
         <li class="ask">
-          <span class="kind">one of three · how likely each option is</span>
-          <span class="ask-q">Which emotion comes through most?</span>
+          <span class="kind">one of six · the top three options</span>
+          <span class="ask-q">Which emotion is the speaker expressing?</span>
           <span class="opts">
-            <span>angry</span><span class="bar"><span style="--p: 71%"></span></span><span>71%</span>
-            <span>neutral</span><span class="bar"><span style="--p: 22%"></span></span><span>22%</span>
-            <span>sad</span><span class="bar"><span style="--p: 7%"></span></span><span>7%</span>
+            <span>angry</span><span class="bar"><span style="--p: 97%"></span></span><span>97%</span>
+            <span>happy</span><span class="bar"><span style="--p: 1%"></span></span><span>1%</span>
+            <span>disgust</span><span class="bar"><span style="--p: 1%"></span></span><span>1%</span>
           </span>
         </li>
 
         <li class="ask">
-          <span class="kind">scale · how likely each level is</span>
-          <span class="ask-q">How fast are they talking?</span>
+          <span class="kind">scale · your own question, not verified</span>
+          <span class="ask-q">How upset is the speaker?</span>
           <span class="scale">
-            <span style="--p: 9%"><b>9%</b>slow</span>
-            <span style="--p: 33%"><b>33%</b>average</span>
-            <span class="top" style="--p: 58%"><b>58%</b>fast</span>
+            <span style="--p: 14%"><b>14%</b>calm</span>
+            <span class="top" style="--p: 47%"><b>47%</b>annoyed</span>
+            <span style="--p: 39%"><b>39%</b>very upset</span>
           </span>
         </li>
 
@@ -86,7 +92,7 @@
     </section>
 
     <div class="signal-line" aria-hidden="true">
-      <span>now → training the release model</span>
+      <span>v1 · open weights · Apache-2.0</span>
     </div>
 
     <section id="how" class="section">
@@ -94,15 +100,15 @@
       <div class="cards">
         <div class="card">
           <span class="card-title">One pass, no text to parse</span>
-          <span class="card-text">The usual way to question an audio language model is to let it write an answer, token by token, for each question, then parse the text. Dodona reads the probability of every answer option straight from the model, for all questions at once: about 40 questions on a 10-second clip in 0.36 s on one GPU.</span>
+          <span class="card-text">The usual way to question an audio language model is to let it write an answer, token by token, for each question, then parse the text. Dodona reads the probability of every answer option straight from the model, for all questions at once: 40 questions take about four times as long as one, not forty times (53 questions on a 10-second window in 1.4 s on one NVIDIA L40S).</span>
         </div>
         <div class="card">
           <span class="card-title">Probabilities that mean what they say</span>
-          <span class="card-text">On the questions it was trained for, when Dodona says 85% it is right about 85% of the time on held-out recordings. The model card will show the full reliability tables, not just one summary number.</span>
+          <span class="card-text">On the questions it was trained for, when Dodona says 80% it is right about 80% of the time on recordings it never saw (mean calibration error 0.024). The model card shows the full reliability tables, not just one number.</span>
         </div>
         <div class="card">
-          <span class="card-title">Emotion, delivery and content together</span>
-          <span class="card-text">One model hears how someone feels, how they speak (pace, hesitation, overlap, number of speakers) and what they said, so you can ask about all of them in the same pass.</span>
+          <span class="card-title">How, who and what, together</span>
+          <span class="card-text">One model hears how someone feels (emotion, tone), who is speaking (number of speakers, voices, laughter) and whether a word was said, so you can ask about all of them in the same pass. For topics, a transcript is still more accurate, and the model card says so.</span>
         </div>
       </div>
     </section>
@@ -110,11 +116,10 @@
     <section id="claude" class="section">
       <h2>Ears for Claude</h2>
       <p class="section-intro">
-        Dodona is being built with an MCP connector for Claude. Claude hands Dodona a recording and its
-        questions, gets calibrated answers back, and reasons over them: reviewing hundreds of
-        support calls for frustration, summarising who dominated a meeting, or flagging the
-        recordings a person should listen to. Claude does the reasoning; Dodona gives it ears it
-        can trust.
+        Dodona ships an MCP server, so Claude can ask it questions about an audio file: Claude
+        hands over a recording and its questions, gets calibrated answers back, and reasons over
+        them. The server runs on your own machine and needs a CUDA GPU (about 24 GB); a hosted
+        version that needs no GPU is planned.
       </p>
     </section>
 
@@ -123,8 +128,8 @@
       <p class="section-intro">
         Dodona was the oldest oracle of ancient Greece. Its priests heard the answers in sound:
         the rustling of a sacred oak, the calls of doves, the ringing of bronze cauldrons in the
-        wind. People wrote their questions on small lead tablets, most of them yes-or-no
-        ("is it better for me to…?"), and thousands survive. A written question, a recording to
+        wind. People wrote their questions on small lead tablets, many of them yes-or-no
+        ("is it better for me to…?"), and many survive. A written question, a recording to
         listen to, a yes or a no: that is still the whole idea.
       </p>
     </section>
@@ -132,9 +137,10 @@
     <section id="status" class="section">
       <h2>Status</h2>
       <ul class="points">
-        <li>In development. Experiments are pre-registered and run on AWS.</li>
-        <li>Built on Qwen2-Audio-7B-Instruct with a small adapter, trained on English speech: AMI meetings, CREMA-D, Common Voice.</li>
-        <li>Release: open source (Apache-2.0) on Hugging Face, with a model card that states what it can and cannot answer.</li>
+        <li>Version 1. Open source (Apache-2.0) on GitHub, weights on Hugging Face, with a model card that states what it can and cannot answer.</li>
+        <li>Two small adapters (about 135 MB) on Qwen2-Audio-7B-Instruct, trained on English speech: AMI meetings, CREMA-D, Common Voice.</li>
+        <li>Built by one person on one cloud GPU, with every experiment pre-registered.</li>
+        <li>Limits, stated up front: emotion was learned from actors, some scale questions are weak, and it needs a GPU with about 24 GB.</li>
         <li>Not a chat model: Dodona answers questions about audio; it does not hold a conversation.</li>
       </ul>
     </section>

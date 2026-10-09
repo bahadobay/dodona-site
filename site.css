@@ -78,12 +78,6 @@
 
 .title-row h1 { margin-bottom: 0.5rem; }
 
-.epithet {
-  margin: 0;
-  font: italic 1.4rem var(--serif);
-  color: var(--muted);
-}
-
 .kind {
   grid-column: 1 / -1;
   font: 0.7rem var(--mono);

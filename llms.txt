@@ -1,0 +1,47 @@
+# Dodona
+
+> A voice-native decision model. Ask typed questions about speech — yes/no,
+> multiple choice, ordinal scale — and get calibrated probabilities read
+> straight from the audio. No transcript in between, and no text is generated.
+
+## Start here
+
+- [Model on Hugging Face](https://huggingface.co/bahadobay/dodona-audio): 46
+  calibrated questions, full calibration and reliability tables, benchmark
+  results against Qwen2-Audio, and a model card stating what it can and cannot
+  answer.
+- [Code on GitHub](https://github.com/bahadobay/dodona-audio): Python API and
+  MCP server. Apache-2.0, weights included.
+- [Examples](https://github.com/bahadobay/dodona-audio/blob/main/EXAMPLES.md):
+  real outputs on real recordings, with the audio each one comes from named.
+
+## Use it
+
+- [MCP server](https://github.com/bahadobay/dodona-audio#use-it-from-claude-mcp):
+  add `dodona-mcp` to an MCP client to let an assistant ask questions about
+  audio files. Runs locally and needs a CUDA GPU of about 24 GB.
+- Install with
+  `pip install git+https://github.com/bahadobay/dodona-audio`.
+
+## What it is good at
+
+- How something was said: emotion, tone, speaking rate, hesitation.
+- Who is speaking: number of speakers, overlapping speech, laughter.
+- Whether a specific word was said, including words never seen in training,
+  with a calibrated probability.
+
+## Limits
+
+- Trained on English speech. Emotion was learned from actors, and scales such
+  as speaking rate are weak.
+- A yes/no answer describes the recording's strongest 10-second window, not the
+  whole recording; `where` says which window. Choice and score answers are
+  averaged over the windows.
+- It is not a chat model. Dodona answers questions about audio; it does not hold
+  a conversation.
+- Every answer carries a `status`: `calibrated`, `not verified`, or
+  `off catalogue`. Only the first means the probability can be relied on.
+
+## Contact
+
+- [Contact and more](https://dodona.bahadobay.dev/): dobaybaha3@gmail.com

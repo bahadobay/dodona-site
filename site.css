@@ -134,3 +134,25 @@
   font-size: 0.8rem;
   margin-bottom: 0.25rem;
 }
+
+.try {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin: 1.25rem 0 1rem;
+}
+
+.try-button {
+  display: inline-block;
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.try-button:hover { filter: brightness(1.08); }
+
+.try span { color: var(--muted); font-size: 0.95rem; }
